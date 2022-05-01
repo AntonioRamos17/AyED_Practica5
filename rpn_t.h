@@ -55,7 +55,7 @@ template<class T> const int rpn_t<T>::evaluate(queue_l_t<char>& q) {
 		<< "   Lo metemos en la pila..." << std::endl;
     } else {
       std::cout << " (es un operador)" << std::endl;
-      // poner código
+      operate_(c);  /// ESTA WEA ES RANCIA
     }
   }
   // poner código
@@ -79,9 +79,16 @@ template<class T> void rpn_t<T>::operate_(const char c) {
     case '+':
       // poner código
       break;
-    // poner código resto de operadores
+    case '-':
+      // poner código
+      break;
+    case '*':
+      // poner código
+      break;
+    case '/':
+      // poner código
+      break;
   }
-
   // poner código
   std::cout << "   Metemos en la pila el resultado: " << std::endl;
 }
