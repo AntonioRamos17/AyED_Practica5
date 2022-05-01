@@ -6,8 +6,6 @@
  * FECHA: 2022-05-01
  * ESTILO: Google C++ Style Guide
  * ASIGNATURA: Algoritmos y Estructuras de Datos
- * COMENTARIOS: Programa principal para probar la calculadora de expresiones 
- *              en notaión polaca inversa (RPN, Reverse Polish Notation)
  * COMPILACION: g++ main_rpn_t.cc -o main_rpn_t
  * EJECUCION: ./main_rpn_t < data_rpn_t_1.txt
  *            ./main_rpn_t < data_rpn_t_2.txt

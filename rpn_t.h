@@ -1,11 +1,18 @@
-// AUTOR: 
-// FECHA: 
-// EMAIL: 
-// VERSION: 2.0
-// ASIGNATURA: Algoritmos y Estructuras de Datos
-// PRÁCTICA Nº: 5
-// ESTILO: Google C++ Style Guide
-// COMENTARIOS: Clase RPN (Reverse Polish Notation)
+/**
+ * FICHERO: stack_l_t.h
+ * AUTOR: Antonio Ramos Castilla (alu0101480367@ull.edu.es)
+ * PRACTICA: PRÁCTICA Nº: 5
+ * VERSION: 2.0
+ * FECHA: 2022-05-01
+ * ESTILO: Google C++ Style Guide
+ * ASIGNATURA: Algoritmos y Estructuras de Datos
+ * COMENTARIOS: Clase RPN (Reverse Polish Notation)
+ * COMPILACION: g++ main_rpn_t.cc -o main_rpn_t
+ * EJECUCION: ./main_rpn_t < data_rpn_t_1.txt
+ *            ./main_rpn_t < data_rpn_t_2.txt
+ *            ./main_rpn_t < data_rpn_t_3.txt
+ */
+
 
 #ifndef RPNT_H_
 #define RPNT_H_
