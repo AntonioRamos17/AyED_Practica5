@@ -1,11 +1,18 @@
-// AUTOR: 
-// FECHA: 
-// EMAIL: 
-// VERSION: 2.0
-// ASIGNATURA: Algoritmos y Estructuras de Datos
-// TEMA: 4
-// ESTILO: Google C++ Style Guide
-// COMENTARIOS: 
+/**
+ * FICHERO: dll_t.h
+ * AUTOR: Antonio Ramos Castilla (alu0101480367@ull.edu.es)
+ * PRACTICA: PRÁCTICA Nº: 5
+ * VERSION: 2.0
+ * FECHA: 2022-05-01
+ * ESTILO: Google C++ Style Guide
+ * ASIGNATURA: Algoritmos y Estructuras de Datos
+ * COMENTARIOS: Programa principal para probar la calculadora de expresiones 
+ *              en notaión polaca inversa (RPN, Reverse Polish Notation)
+ * COMPILACION: g++ main_rpn_t.cc -o main_rpn_t
+ * EJECUCION: ./main_rpn_t < data_rpn_t_1.txt
+ *            ./main_rpn_t < data_rpn_t_2.txt
+ *            ./main_rpn_t < data_rpn_t_3.txt
+ */
 
 #ifndef DLLT_H_
 #define DLLT_H_
@@ -20,29 +27,21 @@ template <class T> class dll_t {
  public:
   // constructor
   dll_t(void) : head_(NULL), tail_(NULL), sz_(0) {}
-
   // destructor
   ~dll_t(void); 
-
   // getters
   dll_node_t<T>* get_tail(void) const { return tail_; }
   dll_node_t<T>* get_head(void) const { return head_; }
   int get_size(void) const { return sz_; }
-
   bool empty(void) const;
-
   // operaciones
   void push_back(dll_node_t<T>*);
   void push_front(dll_node_t<T>*);
-
   dll_node_t<T>* pop_back(void);
   dll_node_t<T>* pop_front(void);
-
   dll_node_t<T>* erase(dll_node_t<T>*);
-
   // E/S
   std::ostream& write(std::ostream& = std::cout) const;
-
  private:
   dll_node_t<T>* head_;
   dll_node_t<T>* tail_;
@@ -50,7 +49,11 @@ template <class T> class dll_t {
 };
 
 
-// destructor
+/**
+ * @brief : Destructor de la clase
+ * @param void
+ * @return : void
+ */
 template <class T> dll_t<T>::~dll_t(void) {
   while (head_ != NULL) {
     dll_node_t<T>* aux = head_;
@@ -61,7 +64,11 @@ template <class T> dll_t<T>::~dll_t(void) {
   tail_ = NULL;
 }
 
-// Comprobar si lista vacía
+/**
+ * @brief : Comprueba que la lista esté vacía
+ * @param void
+ * @return : true/false
+ */
 template <class T> bool dll_t<T>::empty(void) const {
   if (head_ == NULL) {
     assert(tail_ == NULL);
@@ -71,10 +78,13 @@ template <class T> bool dll_t<T>::empty(void) const {
     return false;
 }
 
-// operaciones
+/**
+ * @brief : Insertar delante de un nodo
+ * @param nodo
+ * @return : void
+ */
 template <class T> void dll_t<T>::push_front(dll_node_t<T>* nodo) {
   assert(nodo != NULL);
-
   if (empty()) {
     head_ = nodo;
     tail_ = head_;
@@ -86,9 +96,13 @@ template <class T> void dll_t<T>::push_front(dll_node_t<T>* nodo) {
   sz_++;
 }
 
+/**
+ * @brief : Insertar por detrás 
+ * @param nodo
+ * @return : void
+ */
 template <class T> void dll_t<T>::push_back(dll_node_t<T>* nodo) {
   assert(nodo != NULL);
-
   if (empty()) {
     head_ = nodo;
     tail_ = head_;
@@ -100,9 +114,13 @@ template <class T> void dll_t<T>::push_back(dll_node_t<T>* nodo) {
   sz_++;
 }
 
+/**
+ * @brief : Extraer por detrás
+ * @param void
+ * @return : aux
+ */
 template <class T> dll_node_t<T>* dll_t<T>::pop_back(void) {
   assert(!empty());
-
   dll_node_t<T>* aux = tail_;
   tail_ = tail_->get_prev();
   if (tail_ != NULL)
@@ -115,9 +133,13 @@ template <class T> dll_node_t<T>* dll_t<T>::pop_back(void) {
   return aux;
 }
 
+/**
+ * @brief : Insertar por delante
+ * @param void
+ * @return : aux
+ */
 template <class T> dll_node_t<T>* dll_t<T>::pop_front(void) {
   assert(!empty());
-
   dll_node_t<T>* aux = head_;
   head_ = head_->get_next();
   if (head_ != NULL)
@@ -130,9 +152,13 @@ template <class T> dll_node_t<T>* dll_t<T>::pop_front(void) {
   return aux;
 }
 
+/**
+ * @brief : Borrar un nodo
+ * @param nodo
+ * @return : nodo
+ */
 template <class T> dll_node_t<T>* dll_t<T>::erase(dll_node_t<T>* nodo) {
   assert(nodo != NULL);
-
   if (nodo->get_prev() != NULL)
     nodo->get_prev()->set_next(nodo->get_next());
   else
@@ -147,10 +173,13 @@ template <class T> dll_node_t<T>* dll_t<T>::erase(dll_node_t<T>* nodo) {
   return nodo;
 }
 
-// E/S
+/**
+ * @brief : Método de escritura
+ * @param os
+ * @return : os
+ */
 template <class T> std::ostream& dll_t<T>::write(std::ostream& os) const {
   dll_node_t<T>* aux = head_;
-
   while (aux != NULL) {
     aux->write(os);
     aux = aux->get_next();
