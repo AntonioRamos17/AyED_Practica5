@@ -13,7 +13,6 @@
  *            ./main_rpn_t < data_rpn_t_3.txt
  */
 
-
 #ifndef RPNT_H_
 #define RPNT_H_
 
@@ -29,20 +28,21 @@ template <class T> class rpn_t {
  public:
   // constructor
  rpn_t(void) : stack_() {}
-
   // destructor
   ~rpn_t() {}
-
   // operaciones
   const int evaluate(queue_l_t<char>&);
-
  private: 
   T stack_;
   void operate_(const char operador);
 };
 
 
-// operaciones
+/**
+ * @brief : 
+ * @param q
+ * @return : 
+ */
 template<class T> const int rpn_t<T>::evaluate(queue_l_t<char>& q) {
   while (!q.empty()) 	{
     char c = q.front();
@@ -63,6 +63,11 @@ template<class T> const int rpn_t<T>::evaluate(queue_l_t<char>& q) {
   // poner código
 }
 
+/**
+ * @brief : 
+ * @param c
+ * @return :
+ */
 template<class T> void rpn_t<T>::operate_(const char c) {
   assert(c == '+' || c == '-' || c == '*' || c == '/');
 
@@ -83,5 +88,5 @@ template<class T> void rpn_t<T>::operate_(const char c) {
   std::cout << "   Metemos en la pila el resultado: " << std::endl;
 }
 
- 
+
 #endif  // RPNT_H_
