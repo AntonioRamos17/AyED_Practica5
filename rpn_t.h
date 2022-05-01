@@ -46,10 +46,8 @@ template <class T> class rpn_t {
 template<class T> const int rpn_t<T>::evaluate(queue_l_t<char>& q) {
   while (!q.empty()) 	{
     char c = q.front();
-    
     q.pop();
     std::cout << "Sacamos de la cola un carácter: " << c;
-
     if (isdigit(c)) {
       int i = c - '0';
       // poner código
