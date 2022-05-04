@@ -70,27 +70,27 @@ template<class T> void rpn_t<T>::operate_(const char c) {
   assert(c == '+' || c == '-' || c == '*' || c == '/');
   int primer_op;
   int segundo_op;
-  stack_.top() = primer_op;
+  primer_op = stack_.top();
   stack_.pop();
-  std::cout << "   Sacamos de la pila un operando: " << std::endl;
-  if (c == '+' || c == '-' || c == '*' || c == '/' || c == '^' ||) {
-    stack_.top() = segundo_op;
+  std::cout << "   Sacamos de la pila un operando: " << primer_op << std::endl;
+  if (c == '+' || c == '-' || c == '*' || c == '/' || c == '^' ) {
+    segundo_op = stack_.top();
     stack_.pop();
   }
-  std::cout << "   Sacamos de la pila otro operando: " << std::endl;
+  std::cout << "   Sacamos de la pila otro operando: " << segundo_op << std::endl;
   int resultado;
   switch (c) {
     case '+':
-      resultado = primer_op + segundo_op;
+      resultado = segundo_op + primer_op;
       break;
     case '-':
-      resultado = primer_op - segundo_op;
+      resultado = segundo_op - primer_op;
       break;
     case '*':
-      resultado = primer_op * segundo_op;
+      resultado = segundo_op * primer_op;
       break;
     case '/':
-      resultado = primer_op / segundo_op;
+      resultado = segundo_op / primer_op;
       break;
     case '^':
       resultado = pow(segundo_op, primer_op);
@@ -105,7 +105,7 @@ template<class T> void rpn_t<T>::operate_(const char c) {
       resultado = pow(primer_op, 2);
       break;
   }
-  std::cout << "   Metemos en la pila el resultado: " << std::endl;
+  std::cout << "   Metemos en la pila el resultado: " << resultado << std::endl;
   stack_.push(resultado);
 }
 
