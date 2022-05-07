@@ -39,9 +39,9 @@ template <class T> class rpn_t {
 
 
 /**
- * @brief : 
+ * @brief : Metodo para evaluar la pila
  * @param q
- * @return : 
+ * @return : stack_.top()
  */
 template<class T> const int rpn_t<T>::evaluate(queue_l_t<char>& q) {
   while (!q.empty()) 	{
@@ -62,9 +62,9 @@ template<class T> const int rpn_t<T>::evaluate(queue_l_t<char>& q) {
 }
 
 /**
- * @brief : 
+ * @brief : Metodo de operaciones en la pila
  * @param c
- * @return :
+ * @return : void
  */
 template<class T> void rpn_t<T>::operate_(const char c) {
   assert(c == '+' || c == '-' || c == '*' || c == '/');
