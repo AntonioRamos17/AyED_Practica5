@@ -45,7 +45,7 @@ template<class T> class stack_l_t {
 
 
 /**
- * @brief : Método para extraer de la pila
+ * @brief : Método para insertar en la pila
  * @param dato
  * @return : void
  */
@@ -56,7 +56,7 @@ template<class T> void stack_l_t<T>::push(const T& dato) {
 }
 
 /**
- * @brief : Método para insertar en la pila
+ * @brief : Método para extraer de la pila
  * @param void
  * @return : void
  */
