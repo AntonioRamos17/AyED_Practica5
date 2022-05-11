@@ -35,6 +35,10 @@ template<class T> class stack_l_t {
   bool empty(void) const;
   // E/S	
   std::ostream& write(std::ostream& os = std::cout) const;
+  // Métodos adicionales
+  int SumaPares();
+  int tamanyo_pila();
+  int mayor();
  private:
   dll_t<T> l_;
 };
@@ -95,5 +99,38 @@ template<class T> std::ostream& stack_l_t<T>::write(std::ostream& os) const {
   return os;
 }
 
+/// Métodos adicionales
+
+template<class T> int stack_l_t<T>::SumaPares() {
+  int suma{0};
+  dll_node_t<T>* aux = l_.get_head();
+  while (aux != NULL) {
+    if (aux->get_data() % 2 == 0) {
+      suma += aux->get_data();
+      aux = aux->get_next();
+    } else {
+      aux = aux->get_next();
+    }
+  }
+  return suma;
+} 
+
+template<class T> int stack_l_t<T>::tamanyo_pila() {
+  return l_.get_size();
+}
+
+template<class T> int stack_l_t<T>::mayor() {
+  dll_node_t<T>* aux = l_.get_head();
+  int mayor{l_.get_head()->get_data()};
+  while (aux != NULL) {
+    if (aux->get_data() > mayor) {
+      mayor = aux->get_data();
+      aux = aux->get_next();
+    } else {
+      aux = aux->get_next();
+    }
+  }
+  return mayor;
+}
 
 #endif  // STACKL_H_
