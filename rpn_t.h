@@ -67,7 +67,7 @@ template<class T> const int rpn_t<T>::evaluate(queue_l_t<char>& q) {
  * @return : void
  */
 template<class T> void rpn_t<T>::operate_(const char c) {
-  assert(c == '+' || c == '-' || c == '*' || c == '/');
+  assert(c == '+' || c == '-' || c == '*' || c == '/' || c == '^' || c == 'r' || c == '1' || c == 'c');
   int primer_op;
   int segundo_op;
   primer_op = stack_.top();
